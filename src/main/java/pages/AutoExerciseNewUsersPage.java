@@ -20,6 +20,7 @@ private WebElement enterEmailAddLocator;
 private WebElement clickOnSignupLocator;
 
 
+
     public boolean IsNewUsersPageDisplayed() {
         return newUsersPageIsDisplayedLocator.isDisplayed();
     }

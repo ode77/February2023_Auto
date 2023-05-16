@@ -9,6 +9,9 @@ import pages.NewTourConfirmationPage;
 import pages.NewTourFlightFinderPage;
 import pages.NewTourHomePage;
 import pages.NewTourRegisterPage;
+import utilities.ConfigReader;
+
+import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,9 +23,11 @@ public class NewTourStepDefs extends BaseUtil {
         this.base = base;
     }
     @Given("I am on the Newtours website")
-    public void i_am_on_the_newtours_home_page() {
+    public void i_am_on_the_newtours_home_page() throws IOException {
         base.driver.manage().window().maximize();
-        base.driver.get("https://demo.guru99.com/selenium/newtours");
+//        base.driver.get("https://demo.guru99.com/selenium/newtours");
+        ConfigReader configReader = new ConfigReader();
+        base.driver.get(configReader.getNewTour_Url());
 
     }
     @When("I click on the Register link")

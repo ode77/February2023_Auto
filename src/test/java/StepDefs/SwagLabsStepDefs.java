@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.*;
-import utilities.PropertyReader;
+import utilities.ConfigReader;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -36,8 +36,8 @@ public class SwagLabsStepDefs extends BaseUtil {
     @Given("I am on the swaglab home page")
     public void iAmOnTheSwaglabHomePage() throws IOException {
 //        base.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        PropertyReader propertyReader = new PropertyReader();
-        base.driver.get(propertyReader.getSwagLabUrl());
+        ConfigReader configReader = new ConfigReader();
+        base.driver.get(configReader.getSwagLab_Url());
     }
 
     @When("I enter valid username and valid password")
@@ -91,13 +91,13 @@ public class SwagLabsStepDefs extends BaseUtil {
     public void i_complete_all_the_required_fields() throws IOException {
         // Write code here that turns the phrase above into concrete actions
         CheckoutPage checkoutPage = new CheckoutPage(base.driver);
-//        checkoutPage.enterFirstname("sheyi");
-//        checkoutPage.enterLastname("odeleye");
-//        checkoutPage.enterPostalcode("k32");
-        PropertyReader propertyReader = new PropertyReader();
-        checkoutPage.enterFirstname(propertyReader.getFirstName());
-        checkoutPage.enterLastname(propertyReader.getLastName());
-        checkoutPage.enterPostalcode(propertyReader.getPoseCode());
+        checkoutPage.enterFirstname("sheyi");
+        checkoutPage.enterLastname("odeleye");
+        checkoutPage.enterPostalcode("k32");
+//        ConfigReader configReader = new ConfigReader();
+//        checkoutPage.enterFirstname(configReader.getFirstName());
+//        checkoutPage.enterLastname(configReader.getLastName());
+//        checkoutPage.enterPostalcode(configReader.getPostCode());
     }
 
     @When("I clicked on Continue button")
@@ -126,9 +126,11 @@ public class SwagLabsStepDefs extends BaseUtil {
     @And("I enter details for only firstname and lastname")
     public void iEnterDetailsForOnlyFirstnameAndLastname() throws IOException {
         CheckoutPage checkoutPage = new CheckoutPage(base.driver);
-        PropertyReader propertyReader = new PropertyReader();
-        checkoutPage.enterFirstname(propertyReader.getFirstName());
-        checkoutPage.enterLastname(propertyReader.getLastName());
+        checkoutPage.enterFirstname("sheyi");
+        checkoutPage.enterLastname("odeleye");
+//        ConfigReader configReader = new ConfigReader();
+//        checkoutPage.enterFirstname(configReader.getFirstName());
+//        checkoutPage.enterLastname(configReader.getLastName());
     }
 
     @Then("error msg {string} is displayed under Postcode field")
@@ -141,9 +143,11 @@ public class SwagLabsStepDefs extends BaseUtil {
     @And("I enter details for only lastname and postcode")
     public void iEnterDetailsForOnlyLastnameAndPostcode() throws IOException {
         CheckoutPage checkoutPage = new CheckoutPage(base.driver);
-        PropertyReader propertyReader = new PropertyReader();
-        checkoutPage.enterLastname(propertyReader.getLastName());
-        checkoutPage.enterPostalcode(propertyReader.getPoseCode());
+        checkoutPage.enterLastname("odeleye");
+        checkoutPage.enterPostalcode("k32");
+//        ConfigReader configReader = new ConfigReader();
+//        checkoutPage.enterLastname(configReader.getLastName());
+//        checkoutPage.enterPostalcode(configReader.getPostCode());
 
 
     }
@@ -158,9 +162,11 @@ public class SwagLabsStepDefs extends BaseUtil {
     @And("I enter details for only firstname and postcode")
     public void iEnterDetailsForOnlyFirstnameAndPostcode() throws IOException {
         CheckoutPage checkoutPage = new CheckoutPage(base.driver);
-        PropertyReader propertyReader = new PropertyReader();
-        checkoutPage.enterFirstname(propertyReader.getFirstName());
-        checkoutPage.enterPostalcode(propertyReader.getPoseCode());
+        checkoutPage.enterFirstname("sheyi");
+        checkoutPage.enterPostalcode("k32");
+//        ConfigReader configReader = new ConfigReader();
+//        checkoutPage.enterFirstname(configReader.getFirstName());
+//        checkoutPage.enterPostalcode(configReader.getPostCode());
 
     }
 

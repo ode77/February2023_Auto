@@ -15,8 +15,6 @@ public class AutoExerciseHomePage extends BasePage {
     private WebElement clickOnLoginLocator;
     @FindBy(linkText = "Logged in as solo")
     private WebElement userNamePageIsVisible;
-    @FindBy(xpath = "//a[normalize-space()='Logout']")
-    private WebElement clickLogoutLocator;
     @FindBy(xpath = "//a[@href='/contact_us']")
     private WebElement clickOnContactUsLocator;
     @FindBy(xpath = " //a[contains(text(),'Test Cases')]")
@@ -39,10 +37,6 @@ public class AutoExerciseHomePage extends BasePage {
         return userNamePageIsVisible.isDisplayed();
     }
 
-    public void clickOnLogoutButton() {
-        clickLogoutLocator.click();
-
-    }
     public void clickOnContactButton(){
         clickOnContactUsLocator.click();
     }

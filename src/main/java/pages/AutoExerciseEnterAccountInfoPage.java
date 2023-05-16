@@ -15,6 +15,12 @@ public class AutoExerciseEnterAccountInfoPage extends BasePage {
     private WebElement clickOnTitleLocator;
     @FindBy(xpath = "//input[@id='password']")
     private WebElement enterPassWordLocator;
+    @FindBy(id = "days")
+    private WebElement enterDayOfBirthLocator;
+    @FindBy(id = "months")
+    private WebElement enterMonthOfBirthLocator;
+    @FindBy(id = "years")
+    private WebElement enterYearOfBirthLocator;
     @FindBy(xpath = "//input[@id='newsletter']")
     private WebElement clickOnNewsLetterLocator;
     @FindBy(xpath = "//input[@id='optin']")
@@ -49,6 +55,15 @@ public class AutoExerciseEnterAccountInfoPage extends BasePage {
     }
     public void setEnterPassWord(String pwd){
         enterPassWordLocator.sendKeys("Yahoo77");
+    }
+    public void setEnterDayOfBirth(){
+        enterDayOfBirthLocator.sendKeys("15");
+    }
+    public void setEnterMonthOfBirth(){
+        enterMonthOfBirthLocator.sendKeys("02");
+    }
+    public void setEnterYearOfBirth(){
+        enterYearOfBirthLocator.sendKeys("1990");
     }
     public void clickOnNewsLetterButton(){
         clickOnNewsLetterLocator.click();

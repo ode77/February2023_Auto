@@ -6,6 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import utilities.ConfigReader;
+
+import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,10 +19,12 @@ public class UKBANEWStepDefs extends BaseUtil {
         this.base = base;
     }
     @Given("I am on the UKBANew website")
-    public void i_am_on_the_ukba_new_website() {
+    public void i_am_on_the_ukba_new_website() throws IOException {
         // Write code here that turns the phrase above into concrete actions
         base.driver.manage().window().maximize();
-        base.driver.navigate().to("https://www.gov.uk/check-uk-visa/y");
+//        base.driver.navigate().to("https://www.gov.uk/check-uk-visa/y");
+        ConfigReader configReader = new ConfigReader();
+        base.driver.get(configReader.getUKBA_Url());
     }
     @When("I choose {string} nationality")
     public void i_choose_nationality(String Japan) {

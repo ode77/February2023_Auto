@@ -6,7 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import utilities.ConfigReader;
 
+import java.io.IOException;
 import java.util.Random;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -19,10 +21,12 @@ public class LambdaTestStepDefs extends BaseUtil {
         this.base = base;
     }
     @Given("I am on LambdaTest home page")
-    public void i_am_on_lambda_test_home_page() {
+    public void i_am_on_lambda_test_home_page() throws IOException {
         // Write code here that turns the phrase above into concrete actions
         base.driver.manage().window().maximize();
-        base.driver.get("https://ecommerce-playground.lambdatest.io/");
+//        base.driver.get("https://ecommerce-playground.lambdatest.io/");
+        ConfigReader configReader = new ConfigReader();
+        base.driver.get(configReader.getLambdaTest_Url());
     }
 
     @Given("I click on Register button link")

@@ -22,7 +22,7 @@ public class AutoExerciseStepdefs extends BaseUtil {
     @Given("I am on autoexercise home page")
     public void i_am_on_autoexercise_home_page()  {
         base.driver.manage().window().maximize();
-//        base.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        base.driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
         base.driver.get("https://automationexercise.com/");
 
 
@@ -71,12 +71,14 @@ public class AutoExerciseStepdefs extends BaseUtil {
         assertThat(autoExerciseEnterAccountInfoPage.IsAccountInfoPageDisplayed(), equalTo(true));
 
     }
-
-    @When("Fill details: Title and {string}")
-    public void fill_details_title_and(String pwrd) {
+@When("Fill details: Title, {string} and {string}")
+public void fill_details_title_and(String pwrd, String dob) {
         AutoExerciseEnterAccountInfoPage autoExerciseEnterAccountInfoPage = new AutoExerciseEnterAccountInfoPage(base.driver);
         autoExerciseEnterAccountInfoPage.clickOnTitleButton();
         autoExerciseEnterAccountInfoPage.setEnterPassWord(pwrd);
+        autoExerciseEnterAccountInfoPage.setEnterDayOfBirth();
+        autoExerciseEnterAccountInfoPage.setEnterMonthOfBirth();
+        autoExerciseEnterAccountInfoPage.setEnterDayOfBirth();
 
     }
 
@@ -164,16 +166,14 @@ public class AutoExerciseStepdefs extends BaseUtil {
     public void verifyThatLoggedInAsUsernameIsVisible() {
         AutoExerciseHomePage autoExerciseHomePage = new AutoExerciseHomePage(base.driver);
         assertThat(autoExerciseHomePage.IsUserNameVisible(),equalTo(true));
-        base.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 
 
     }
     @And("Click Logout button")
     public void clickLogoutButton() {
-//        base.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        AutoExerciseHomePage autoExerciseHomePage = new AutoExerciseHomePage(base.driver);
-        autoExerciseHomePage.clickOnLogoutButton();
+        AutoExerciseLogOutPage autoExerciseLogOutPage = new AutoExerciseLogOutPage(base.driver);
+        autoExerciseLogOutPage.clickOnLogOutButton();
     }
     @And("Enter {string} and already registered {string}")
     public void enterAndAlreadyRegistered(String name, String email) {
@@ -234,7 +234,6 @@ public class AutoExerciseStepdefs extends BaseUtil {
 
     @And("Click on Test Cases button")
     public void clickOnTestCasesButton() {
-        base.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         AutoExerciseHomePage autoExerciseHomePage = new AutoExerciseHomePage(base.driver);
         autoExerciseHomePage.clickOnTestCasesButton();
 
@@ -260,7 +259,6 @@ public class AutoExerciseStepdefs extends BaseUtil {
     }
     @Then("Click on {string} of first product")
     public void click_on_of_first_product(String string) {
-        base.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         AutoExerciseProductsPage autoExerciseProductsPage= new AutoExerciseProductsPage(base.driver);
         autoExerciseProductsPage.clickOnViewProductButton();
 
@@ -273,8 +271,6 @@ public class AutoExerciseStepdefs extends BaseUtil {
     public void verify_that_detail_is_visible_product_name_category_price_availability_condition_brand() {
 
     }
-
-
 
 }
 

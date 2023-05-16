@@ -5,6 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import utilities.ConfigReader;
+
+import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,10 +19,11 @@ public class BlazeDemoStepDefs extends BaseUtil {
         this.base = base;
     }
     @Given("I am on the Welcome to Simple Travel Agency Landing page")
-    public void i_am_on_the_welcome_to_simple_travel_agency_landing_page() {
-        // Write code here that turns the phrase above into concrete actions
+    public void i_am_on_the_welcome_to_simple_travel_agency_landing_page() throws IOException {
         base.driver.manage().window().maximize();
-        base.driver.get("https://blazedemo.com/");
+//        base.driver.get("https://blazedemo.com/");
+        ConfigReader configReader = new ConfigReader();
+        base.driver.get(configReader.getBlazeDemo_Url());
     }
     @When("I choose the {string} and {string} from the drop menu")
     public void i_choose_the_and_from_the_drop_menu(String departureCity, String destinationCity) {
